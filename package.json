@@ -11,6 +11,7 @@
     "dependencies:update": "ncu -u",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
+    "knex:migrate:make": "knex migrate:make -x ts",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "lint:css": "stylelint \"./**/*.{css,ts,tsx}\"",
     "lint:fix": "eslint --max-warnings=0 --ext .ts,.tsx,.js --fix .",
@@ -19,8 +20,10 @@
     "test-all": "yarn lint && yarn type-check"
   },
   "dependencies": {
+    "knex": "^0.95.6",
     "next": "^10.2.3",
-    "next-auth": "^3.25.0",
+    "next-auth": "^3.26.1",
+    "pg": "^8.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -39,6 +42,7 @@
     "npm-check-updates": "^11.6.0",
     "prettier": "^2.3.1",
     "stylelint-config-standard": "^22.0.0",
+    "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
   }
 }
