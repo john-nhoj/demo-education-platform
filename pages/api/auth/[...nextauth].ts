@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
-import { databaseURI } from '../../../utils';
+import { databaseURI } from '../../../utils/db';
 
 export default NextAuth({
   providers: [
