@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
+import { databaseURI } from '../../../utils';
 
 export default NextAuth({
   providers: [
@@ -8,7 +9,6 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
-
   // A database is optional, but required to persist accounts in a database
-  // database: process.env.DATABASE_URL,
+  database: databaseURI,
 });
