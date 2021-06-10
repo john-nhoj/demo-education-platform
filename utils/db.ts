@@ -2,6 +2,10 @@ import { loadEnvironment } from './env';
 
 loadEnvironment();
 
-export const databaseURI =
-  process.env.DB_URI ||
-  `postgres://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
+const { DB_URI } = process.env;
+
+if (!DB_URI) {
+  throw new Error('Something is wrong with you environment variable DB_URI');
+}
+
+export const databaseURI = DB_URI;
