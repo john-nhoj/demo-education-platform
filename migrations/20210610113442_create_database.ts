@@ -55,7 +55,7 @@ export async function up(knex: Knex): Promise<void> {
       verificationRequestsTable.increments('id').primary();
       verificationRequestsTable.string('identifier');
       verificationRequestsTable.string('token').unique();
-      verificationRequestsTable.timestamp('email_verified', { useTz: true });
+      verificationRequestsTable.timestamp('expires', { useTz: true });
       verificationRequestsTable
         .timestamp('created_at', { useTz: true })
         .notNullable()
