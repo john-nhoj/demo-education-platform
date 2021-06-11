@@ -7,7 +7,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className={cn('min-h-screen', 'layout', 'bg-gray-500')}>
+    <div className={cn('min-h-screen', 'layout')}>
       {children}
       <style jsx>{`
         .layout {
