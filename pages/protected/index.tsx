@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
 import * as cn from 'classnames';
 import { useSession, signIn } from 'next-auth/client';
+import { Loading } from '../../components/Loading/Loading';
 
 const Home = () => {
   const [session, loading] = useSession();
+  const isUser = !!session?.user;
 
   useEffect(() => {
-    if (!loading && !session) {
-      signIn();
-    }
-  });
+    if (loading) return; // Do nothing while loading
+    if (!isUser) signIn(); // If not authenticated, force log in
+  }, [isUser, loading]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <main
