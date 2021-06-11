@@ -1,10 +1,8 @@
 import React from 'react';
-import { signIn, signOut, useSession } from 'next-auth/client';
 import * as cn from 'classnames';
+import Link from 'next/link';
 
 const Home = () => {
-  const [session] = useSession();
-
   return (
     <main
       className={cn(
@@ -15,13 +13,13 @@ const Home = () => {
         'bg-yellow-200'
       )}
     >
-      {!session && <button onClick={() => signIn()}>Sign in</button>}
-      {session && (
-        <>
-          Signed in as {session.user.name} <br />
-          <button onClick={() => signOut()}>Sign out</button>
-        </>
-      )}
+      <nav>
+        <ul>
+          <li>
+            <Link href="/protected">Go to protected page</Link>
+          </li>
+        </ul>
+      </nav>
       <style jsx>{`
         .main-content {
           grid-area: main;
@@ -30,5 +28,7 @@ const Home = () => {
     </main>
   );
 };
+
+Home.auth = true;
 
 export default Home;
