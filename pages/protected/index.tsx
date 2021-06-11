@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as cn from 'classnames';
+import { useSession, signIn } from 'next-auth/client';
 
 const Home = () => {
+  const [session, loading] = useSession();
+
+  useEffect(() => {
+    if (!loading && !session) {
+      signIn();
+    }
+  });
+
   return (
     <main
       className={cn(
