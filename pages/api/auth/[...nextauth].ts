@@ -21,9 +21,9 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
-  pages: {
-    signIn: '/auth/signin',
-  },
+  // pages: {
+  //   signIn: '/auth/signin',
+  // },
   // A database is optional, but required to persist accounts in a database
   database: databaseURI,
 });
