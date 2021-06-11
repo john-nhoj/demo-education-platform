@@ -6,7 +6,6 @@ interface SignInProps {
 }
 
 const SignIn = ({ providers }: SignInProps) => {
-  console.debug(providers);
   return (
     <>
       {Object.values(providers).map((provider) => (
