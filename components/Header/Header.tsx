@@ -1,6 +1,7 @@
 import React from 'react';
 import * as cn from 'classnames';
 import { signOut, useSession } from 'next-auth/client';
+import { useRouter } from 'next/router';
 
 const Header = () => {
   const [session] = useSession();
@@ -32,6 +33,12 @@ const HeaderContent = ({
     image?: string;
   };
 }) => {
+  const router = useRouter();
+  const handleSignOut = async () => {
+    const data = await signOut({ redirect: false, callbackUrl: '/' });
+    router.push(data.url);
+  };
+
   return (
     <div className={cn('grid', 'header-content')}>
       <div className={cn('info', 'flex', 'items-center')}>
@@ -44,7 +51,7 @@ const HeaderContent = ({
           />
         )}
       </div>
-      <button onClick={() => signOut()}>Sign out</button>
+      <button onClick={handleSignOut}>Sign out</button>
       <style>{`
         .header-content {
           grid-template-columns: auto;
