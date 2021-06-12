@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import * as cn from 'classnames';
-import { useSession, signIn } from 'next-auth/client';
+import { useSession } from 'next-auth/client';
 import { Loading } from '../../components/Loading/Loading';
+import { NotAuthenticatedMessage } from '../../components/Messages/NotAuthenticatedMessage';
 
-const Home = () => {
+const ProtectedPage = () => {
   const [session, loading] = useSession();
   const isUser = !!session?.user;
 
-  useEffect(() => {
-    if (loading) return; // Do nothing while loading
-    if (!isUser) signIn(); // If not authenticated, force log in
-  }, [isUser, loading]);
-
   if (loading) {
     return <Loading />;
+  }
+
+  if (!isUser) {
+    return <NotAuthenticatedMessage />;
   }
 
   return (
@@ -136,4 +136,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ProtectedPage;
