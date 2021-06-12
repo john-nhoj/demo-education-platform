@@ -19,7 +19,10 @@ const buttonClassnames = cn(
   'bg-green-300',
   'py-2',
   'px-4',
-  'place-self-center'
+  'place-self-center',
+  'focus:outline-none',
+  'focus:ring',
+  'focus:border-blue-300'
 );
 
 const SignIn = ({ providers, csrfToken, callbackUrl }: SignInProps) => {
