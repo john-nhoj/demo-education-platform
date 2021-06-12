@@ -1,6 +1,6 @@
 import React from 'react';
 import * as cn from 'classnames';
-import { signOut, useSession } from 'next-auth/client';
+import { signIn, signOut, useSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
 
 const Header = () => {
@@ -13,7 +13,12 @@ const Header = () => {
       {session ? (
         <HeaderContent user={session.user} />
       ) : (
-        'You are not logged in.'
+        <div>
+          You are not logged in.{' '}
+          <button className="underline" onClick={() => signIn()}>
+            Sign in
+          </button>
+        </div>
       )}
       <style>{`
         .header {
