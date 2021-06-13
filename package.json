@@ -1,8 +1,9 @@
 {
-  "name": "education-platform",
+  "name": "template-next-auth-js",
   "author": "@john-nhoj",
   "license": "MIT",
   "version": "1.0.0",
+  "engines": {},
   "scripts": {
     "dev": "next dev",
     "build": "next build",
