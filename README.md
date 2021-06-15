@@ -11,7 +11,7 @@ Bootstrap a developer-friendly NextJS app configured with:
 ## Requirements
 
 - npm
-- Postgresql
+- MongoDB
 
 ## Preview
 
@@ -25,12 +25,6 @@ Clone repository:
 git clone git@github.com:john-nhoj/next-auth-js.git
 ```
 
-Create a postgres database to persist users
-
-```bash
-psql next-auth-js
-```
-
 Copy the environment file and complete the variables
 
 ```bash
@@ -41,12 +35,6 @@ Install dependencies
 
 ```bash
 npm run install
-```
-
-Run database migrations
-
-```bash
-npm run knex:migrate:latest
 ```
 
 Start the development server
